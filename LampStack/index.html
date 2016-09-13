@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+        #title{
+            text-align:left;
+            background-color:grey;
+        }
+
+        .text{
+            background-color: lightgrey;
+            border-style: none;
+            alignment: right;
+            margin-top:5px;
+
+        }
+        .hide{
+            display:none;
+        }
+
+    </style>
+
+
+    <title>Title</title>
+    <script>
+        count = 0;
+
+        function add() {
+            var userText = "untitled";
+
+            console.log("Hello");
+            var ele = $("<div class='row record'>" +
+                    "   <div class='col-sm-8 normal usertxt'> "+ userText + " </div> " +
+                    "   <div class='col-sm-8 hide edit'> <input type='text'>  </div>" +
+                    "   <div class='col-sm-4'> " +
+                    "       <button class='text normal modify' > modify </button> " +
+                    "       <button class='hide text edit save'>  save </button> " +
+                    "   </div>" +
+                    "</div>");
+
+            ele.find(".save").click((function(record) {
+                return function() {
+                    record.find(".normal").removeClass("hide");
+
+                    record.find(".edit").addClass("hide");
+
+                    var userText = record.find("input").val();
+
+                    record.find(".usertxt").text(userText);
+
+                };
+            })(ele));
+
+            ele.find(".modify").click((function(record) {
+                return function() {
+                    record.find(".normal").addClass("hide");
+
+                    record.find(".edit").removeClass("hide");
+
+                };
+            })(ele));
+
+            $("#main").append(ele);
+         //   $( "li" ).add( "<p id='new'>new paragraph</p>" )
+            count++;
+            $("#title").text("now we have "+ count +" items");
+
+
+        }
+
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+
+
+    <div class="container" >
+        <h1 id="title"> now we have 0 items </h1>
+        <div id="main">
+
+        </div>
+        <div class="row">
+           <div class="col-sm-offset-10 col-sm-2" >
+               <button onclick="add()" id="add" class="text"> Create New Item  </button>
+           </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>

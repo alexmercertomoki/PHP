@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        h1 {
+            text-align: center;
+
+        }
+        b {
+            text-align: center;
+
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+
+<body>
+        <h1>we do simple web log analysis</h1>
+
+    <form action="analysis.php" method="post" enctype="multipart/form-data" role="form">
+          <div class="form-group">
+
+              <div class="row">
+
+                  <div class="col-md-2 col-md-offset-5">
+
+                      <b> Select log to upload:</b>
+                      <br> <br>
+                      <input type="file" name="logfile" >
+                      <br>
+                      <input type="submit" value="Upload" name="submit">
+                  </div>
+              </div>
+
+          </div>
+    </form>
+
+</body>
+
+</html>
+
+
